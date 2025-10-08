@@ -26,5 +26,6 @@ jobs:
           git config --global user.email "rougeollehenri@gmail.com"
           git add Q2_archive_TOTO.txt
           git commit -m "Ajout archive et rapport du $(date +'%Y%m%d-%H%M%S')"
+          git pull --rebase
           git push
 

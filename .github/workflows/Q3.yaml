@@ -27,4 +27,5 @@ jobs:
           git config --global user.email "rougeollehenri@gmail.com"
           git add Q3_archive_java.txt
           git commit -m "Add Q3_archive_java.txt"
+          git pull --rebase
           git push

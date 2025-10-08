@@ -28,4 +28,5 @@ jobs:
           git config --global user.email "rougeollehenri@gmail.com"
           git add "${{ steps.vars.outputs.Q1_archive }}" "${{ steps.vars.outputs.Q1_archive }}"
           git commit -m "Ajout archive et rapport du ${{ steps.vars.outputs.Q1_archive }}"
+          git pull --rebase
           git push

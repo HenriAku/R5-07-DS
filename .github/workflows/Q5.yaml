@@ -1,0 +1,33 @@
+
+name: Q5
+
+on: [push]
+permissions:
+  contents: write
+
+jobs:
+    prepare-q5:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+                uses: actions/checkout@v4
+
+            - name: Générer nom de fichiers datés
+                id: vars
+                run: |
+                echo "Q5_archive=Q5_archive_$(date +'%d-%m-%Y').txt" >> $GITHUB_OUTPUT
+
+            - name: Create Q5_archive_date.txt
+                run: |
+                    echo "Rougeolle Henri" >> Q5_archive_${{ steps.vars.outputs.Q5_archive }}.txt
+                    echo "----- Q5.java -----" >> Q5_archive_${{ steps.vars.outputs.Q5_archive }}.txt
+                    cat Q5.java >> Q5_archive_${{ steps.vars.outputs.Q5_archive }}.txt
+
+            - name: Commit and push Q5_archive_date.txt
+                run: |
+                git config --global user.name "HenriAku"
+                git config --global user.email "rougeollehenri@gmail.com"
+                git add Q5_archive_$(date +'%d-%m-%Y').txt
+                git commit -m "Add Q5_archive_$(date +'%d-%m-%Y').txt"
+                git pull --rebase origin main
+                git push

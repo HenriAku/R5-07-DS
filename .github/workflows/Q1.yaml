@@ -19,8 +19,8 @@ jobs:
 
       - name: Vérifier intégrité de l’archive
         run: |
-          echo "Contenu du fichier TOTO.txt" > "${{ steps.vars.outputs.Q1_archive }}"
-          echo TOTO.txt > "${{ steps.vars.outputs.Q1_archive }}"
+          echo "Contenu du fichier TOTO.txt" >> "${{ steps.vars.outputs.Q1_archive }}"
+          echo TOTO.txt >> "${{ steps.vars.outputs.Q1_archive }}"
 
       - name: Commit et push des résultats
         run: |

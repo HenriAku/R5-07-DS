@@ -1,0 +1,28 @@
+name: Q3
+
+on:
+  workflow_dispatch:
+
+jobs:
+  create-and-push-archive:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Create Q3.java
+        run: |
+          echo '// Votre code Java ici' > Q3.java
+
+      - name: Create Q3_archive_java.txt
+        run: |
+          echo "Rougeolle Henri" > Q3_archive_java.txt
+          cat Q3.java >> Q3_archive_java.txt
+
+      - name: Commit and push Q3_archive_java.txt
+        run: |
+          git config --global user.name "HenriAku"
+          git config --global user.email "rougeollehenri@gmail.com"
+          git add Q3_archive_java.txt
+          git commit -m "Add Q3_archive_java.txt"
+          git push

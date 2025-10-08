@@ -27,4 +27,5 @@ jobs:
           git config --global user.email "rougeollehenri@gmail.com"
           git add Q4_archive_$(date +'%d-%m-%Y').txt
           git commit -m "Add Q4_archive_$(date +'%d-%m-%Y').txt"
+          git pull --rebase origin main
           git push

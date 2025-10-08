@@ -19,7 +19,6 @@ jobs:
 
       - name: Vérifier intégrité de l’archive
         run: |
-          echo "Information" >> "${{ steps.vars.outputs.Q2_archive }}"
           echo "Rougeolle Henri" >> "${{ steps.vars.outputs.Q2_archive }}"
           DATE=$(date +'%Y%m%d-%H%M%S')
           echo "date et heure : ${DATE}" >> "${{ steps.vars.outputs.Q2_archive }}"         

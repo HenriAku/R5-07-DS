@@ -1,4 +1,4 @@
-name: Archivage Java et rapport
+name: Q2
 
 on: [push]
 permissions:

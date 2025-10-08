@@ -1,7 +1,8 @@
-name: Q3
+name: Archivage Java et rapport
 
-on:
-  workflow_dispatch:
+on: [push]
+permissions:
+  contents: write
 
 jobs:
   create-and-push-archive:

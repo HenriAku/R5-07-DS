@@ -22,7 +22,7 @@ jobs:
           echo "Information" >> "${{ steps.vars.outputs.Q2_archive }}"
           echo "Rougeolle Henri" >> "${{ steps.vars.outputs.Q2_archive }}"
           DATE=$(date +'%Y%m%d-%H%M%S')
-          echo "date et heure : ${DATE}" "${{ steps.vars.outputs.Q2_archive }}"         
+          echo "date et heure : ${DATE}" >> "${{ steps.vars.outputs.Q2_archive }}"         
           cat TOTO.txt >> Q1_archive_TOTO.txt
           Taille=$(TOTO.txt ls -s)
           echo "Taille : ${Taille}" >> "${{ steps.vars.outputs.Q2_archive }}"

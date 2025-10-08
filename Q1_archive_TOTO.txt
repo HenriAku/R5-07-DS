@@ -1,1 +1,3 @@
 TOTO.txt
+Contenu du fichier TOTO.txt
+TOTO.txt

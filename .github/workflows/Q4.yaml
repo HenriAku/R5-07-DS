@@ -1,0 +1,30 @@
+name: Q4
+
+on: [push]
+permissions:
+  contents: write
+
+jobs:
+  create-and-push-archive:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Générer nom de fichiers datés
+        id: vars
+        run: |
+          echo "Q4_archive=Q4_archive_date.txt" >> $GITHUB_OUTPUT
+
+      - name: Create Q4_archive_date.txt
+        run: |
+          echo "Rougeolle Henri" >> Q4_archive_date.txt
+          cat Q4.java >> Q4_archive_date.txt
+
+      - name: Commit and push Q3_archive_java.txt
+        run: |
+          git config --global user.name "HenriAku"
+          git config --global user.email "rougeollehenri@gmail.com"
+          git add Q4_archive_date.txt
+          git commit -m "Add Q4_archive_date.txt"
+          git push

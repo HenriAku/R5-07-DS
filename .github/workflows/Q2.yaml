@@ -1,10 +1,9 @@
 name: Archivage Java et rapport
 
 on: [push]
-
 permissions:
   contents: write
-
+  
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -12,22 +11,20 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Générer nom de fichiers datés
-        id: vars
+      - name: Générer Q2_archive_TOTO.txt
         run: |
-          echo "Q2_archive=Q2_archive_TOTO.txt" >> $GITHUB_OUTPUT
-
-      - name: Vérifier intégrité de l’archive
-        run: |
-          echo "Rougeolle Henri" >> "${{ steps.vars.outputs.Q2_archive }}"          
-          DATE=$(date +'%Y%m%d-%H%M%S')
-          echo "date et heure : ${DATE}" >> "${{ steps.vars.outputs.Q2_archive }}"         
-          cat TOTO.txt >> Q1_archive_TOTO.txt
+          echo "Rougeolle Henri" > Q2_archive_TOTO.txt
+          echo "date et heure : $(date +'%Y%m%d-%H%M%S')" >> Q2_archive_TOTO.txt
+          echo "--- Contenu de TOTO.txt ---" >> Q2_archive_TOTO.txt
+          cat TOTO.txt >> Q2_archive_TOTO.txt
+          echo "--- Taille de TOTO.txt ---" >> Q2_archive_TOTO.txt
+          stat --format="Taille : %s octets" TOTO.txt >> Q2_archive_TOTO.txt
 
       - name: Commit et push des résultats
         run: |
           git config --global user.name "HenriAku"
           git config --global user.email "rougeollehenri@gmail.com"
-          git add "${{ steps.vars.outputs.Q2_archive }}" "${{ steps.vars.outputs.Q2_archive }}"
-          git commit -m "Ajout archive et rapport du ${{ steps.vars.outputs.Q2_archive }}"
+          git add Q2_archive_TOTO.txt
+          git commit -m "Ajout archive et rapport du $(date +'%Y%m%d-%H%M%S')"
           git push
+

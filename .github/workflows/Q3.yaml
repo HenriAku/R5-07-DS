@@ -9,14 +9,15 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
-      - name: Create Q3.java
+        
+      - name: Générer nom de fichiers datés
+        id: vars
         run: |
-          echo '// Votre code Java ici' > Q3.java
+          echo "Q3_archive=Q3_archive_java.txt" >> $GITHUB_OUTPUT
 
       - name: Create Q3_archive_java.txt
         run: |
-          echo "Rougeolle Henri" > Q3_archive_java.txt
+          echo "Rougeolle Henri" >> Q3_archive_java.txt
           cat Q3.java >> Q3_archive_java.txt
 
       - name: Commit and push Q3_archive_java.txt

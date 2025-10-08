@@ -1,2 +1,7 @@
 Rougeolle Henri
-date et heure : 20251008-141608
+date et heure : 20251008-142013
+--- Contenu de TOTO.txt ---
+Test3 Q1.yaml
+Test5
+--- Taille de TOTO.txt ---
+Taille : 20 octets
